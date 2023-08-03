@@ -6,9 +6,11 @@ function bubbleSort(array){
     intercambio = true
     for(let j = 0 ; j < array.length - i ; j++){
       if(array[j] > array[j+1]){
-        let aux = array[j]
-        array[j] = array[j+1] 
-        array[j+1] = aux
+        // let aux = array[j]
+        // array[j] = array[j+1] 
+        // array[j+1] = aux
+        //!Las tres lineas de codigo anterior equivalen a la sgt linea.
+        [array[j] ,array[j+1]] = [array[j+1] , array[j]]
         intercambio = false
       }
     }

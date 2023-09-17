@@ -21,6 +21,9 @@ public class mergesort {
     int lowHalf[] = new int[SIZE1];
     int heighHalf[] = new int[SIZE2];
 
+    // Se crean dos subarreglos para almacenar temporalmente las mitades baja y alta
+    // del arreglo original.
+
     for (int i = 0; i < SIZE1; i++) {
       lowHalf[i] = array[min + i];
     }
@@ -29,6 +32,8 @@ public class mergesort {
     }
 
     int i = 0, j = 0, k = min;
+
+    // Se inicializan índices para recorrer los subarreglos y el arreglo resultante.
 
     while (i < SIZE1 && j < SIZE2) {
       if (lowHalf[i] < heighHalf[j]) {
@@ -41,6 +46,7 @@ public class mergesort {
       k++;
     }
 
+    // Se fusionan los subarreglos ordenadamente en el arreglo original.
     while (i < SIZE1) {
       array[k] = lowHalf[i];
       i++;
@@ -58,6 +64,8 @@ public class mergesort {
       int midle = (min + max) / 2;
       mergeSort(array, min, midle);
       mergeSort(array, midle + 1, max);
+
+      // Realiza la fucion de los sub-arreglos.
       merge(array, min, max, midle);
     }
   }

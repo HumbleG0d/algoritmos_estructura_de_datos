@@ -29,7 +29,9 @@ public class quicksort {
         swap(array, i, j);
       }
     }
-    swap(array, i + 1, max);
+    swap(array, i + 1, max); // *este intercambio se realiza para colocar el pivote en la posición correcta
+                             // en el arreglo, de modo que todos los elementos a la izquierda del pivote sean
+                             // menores que él y todos los elementos a la derecha sean mayores. */
     return i + 1;
   }
 

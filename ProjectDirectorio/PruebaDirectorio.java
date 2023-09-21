@@ -39,11 +39,15 @@ public class PruebaDirectorio {
 
     Persona[] listaOrdenada = ab.ordena(Persona.EDAD);
 
+    System.out.println("Ordenamiento por edad:\n");
+
     for (int i = 0; i < listaOrdenada.length; i++) {
       System.out.println(listaOrdenada[i].toString());
     }
 
     listaOrdenada = ab.ordena(Persona.NOMBRE);
+
+    System.out.println("\nOrdenamiento por nombre:");
 
     for (int i = 0; i < listaOrdenada.length; i++) {
       System.out.println(listaOrdenada[i].toString());

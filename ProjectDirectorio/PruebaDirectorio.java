@@ -20,7 +20,6 @@ public class PruebaDirectorio {
     System.out.print("Version #: ");
     int version = sc.nextInt();
 
-    sc.close();
     /* TODO: Crear 2 vercionamientos mas */
 
     switch (version) {
@@ -37,7 +36,16 @@ public class PruebaDirectorio {
       ab.agrega(p);
     }
 
-    Persona[] listaOrdenada = ab.ordena(Persona.EDAD);
+    // *Elejimos el ordenamiento */
+
+    System.out.println("Ordenamientos");
+    System.out.println("1 -> Burble Sort\n2 -> Quick Sort\n3 -> Merge Sort\n 4 -> Heap Sort");
+    System.out.print("opcion: ");
+    int option = sc.nextInt();
+
+    sc.close();
+
+    Persona[] listaOrdenada = ab.ordena(Persona.EDAD, option);
 
     System.out.println("Ordenamiento por edad:\n");
 
@@ -45,7 +53,7 @@ public class PruebaDirectorio {
       System.out.println(listaOrdenada[i].toString());
     }
 
-    listaOrdenada = ab.ordena(Persona.NOMBRE);
+    listaOrdenada = ab.ordena(Persona.NOMBRE, option);
 
     System.out.println("\nOrdenamiento por nombre:");
 

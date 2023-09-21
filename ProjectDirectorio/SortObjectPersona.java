@@ -31,13 +31,13 @@ public class SortObjectPersona {
 
   public void quickSort(Persona[] listaOrdenada, int atributo, int min, int max) {
     if (min < max) {
-      int indexPivote = partition(listaOrdenada, min, max);
+      int indexPivote = partition(listaOrdenada, atributo, min, max);
       quickSort(listaOrdenada, atributo, min, indexPivote - 1);
       quickSort(listaOrdenada, atributo, indexPivote + 1, max);
     }
   }
 
-  private int partition(Persona[] listaOrdenada, int min, int max) {
+  private int partition(Persona[] listaOrdenada, int atributo, int min, int max) {
     Persona pivote = listaOrdenada[max];
     Persona p1;
     int resultadoComparacion;
@@ -46,7 +46,7 @@ public class SortObjectPersona {
 
     for (int j = min; j <= max - 1; j++) {
       p1 = listaOrdenada[j];
-      resultadoComparacion = p1.comparaA(pivote);
+      resultadoComparacion = p1.comparaA(pivote, atributo);
       if (resultadoComparacion < 0) {
         i++;
         swap(listaOrdenada, i, j);

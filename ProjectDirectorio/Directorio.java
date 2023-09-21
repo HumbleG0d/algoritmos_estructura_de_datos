@@ -7,5 +7,5 @@ public interface Directorio {
 
   public Persona busca(String nombre); // *Busca una persona */
 
-  public Persona[] ordena(int atributo); // *Ordena las persona */
+  public Persona[] ordena(int atributo, int option); // *Ordena las persona */
 }

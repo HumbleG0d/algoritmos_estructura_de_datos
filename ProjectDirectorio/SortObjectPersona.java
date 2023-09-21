@@ -117,4 +117,104 @@ public class SortObjectPersona {
       k++;
     }
   }
+
+  public Persona[] heapSort(Persona[] listaPersonas, int atributo) {
+    Persona[] lista = new Persona[listaPersonas.length];
+    heapSortConstruct(listaPersonas, atributo);
+    lista = heapSortExtract(listaPersonas, atributo);
+
+    return lista;
+  }
+
+  private void heapSortConstruct(Persona[] listaPersonas, int atributo) {
+    int current = 0, maxChildIndex;
+    boolean hecho;
+    Persona p1, p2;
+    int resultadoComparacion;
+
+    for (int i = (listaPersonas.length - 2) / 2; i >= 0; i--) {
+      current = i;
+      hecho = false;
+
+      while (!hecho) {
+        if (2 * current + 1 > listaPersonas.length - 1) {
+          hecho = true;
+        } else {
+          maxChildIndex = heapSortMaxChild(listaPersonas, current, listaPersonas.length - 1, atributo);
+
+          p1 = listaPersonas[current];
+          p2 = listaPersonas[maxChildIndex];
+
+          resultadoComparacion = p1.comparaA(p2, atributo);
+
+          if (resultadoComparacion < 0) {
+            swap(listaPersonas, current, maxChildIndex);
+            current = maxChildIndex;
+          } else {
+            hecho = true;
+          }
+        }
+      }
+    }
+  }
+
+  private int heapSortMaxChild(Persona[] listaPersonas, int loc, int end, int atributo) {
+
+    int result, izq, der;
+    Persona p1, p2;
+    int resultadoComparacion;
+
+    izq = 2 * loc + 1;
+    der = 2 * loc + 2;
+
+    p1 = listaPersonas[izq];
+    p2 = listaPersonas[der];
+    resultadoComparacion = p1.comparaA(p2, atributo);
+    if (der <= end && resultadoComparacion < 0) {
+      result = der;
+    } else {
+      result = izq;
+    }
+
+    return result;
+  }
+
+  private Persona[] heapSortExtract(Persona[] listaPersonas, int atributo) {
+    Persona[] lista = new Persona[listaPersonas.length];
+
+    int current, maxChildIndex;
+    boolean hecho;
+    Persona p1, p2;
+    int resultadoComparacion;
+
+    for (int i = listaPersonas.length - 1; i >= 0; i--) {
+      lista[i] = listaPersonas[0];
+      listaPersonas[0] = listaPersonas[i];
+      current = 0;
+      hecho = false;
+
+      while (!hecho) {
+        if (2 * current + 1 > i) {
+          hecho = true;
+        } else {
+
+          maxChildIndex = heapSortMaxChild(listaPersonas, current, i, atributo);
+
+          p1 = listaPersonas[current];
+          p2 = listaPersonas[maxChildIndex];
+
+          resultadoComparacion = p1.comparaA(p2, atributo);
+
+          if (resultadoComparacion < 0) {
+            swap(listaPersonas, current, maxChildIndex);
+            current = maxChildIndex;
+          } else {
+            hecho = true;
+          }
+        }
+      }
+    }
+
+    return lista;
+  }
 }

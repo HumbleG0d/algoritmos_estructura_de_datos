@@ -14,6 +14,11 @@ public class ElegirSort {
         sort.quickSort(listaOrdenada, atributo, 0, listaOrdenada.length - 1);
         newLista = listaOrdenada;
         break;
+
+      case 3:
+        sort.mergeSort(listaOrdenada, atributo, 0, listaOrdenada.length - 1);
+        newLista = listaOrdenada;
+        break;
     }
     return newLista;
   }

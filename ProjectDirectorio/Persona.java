@@ -86,6 +86,6 @@ public class Persona {
   public String toString() {
     return "Nombre: " + this.nombre + '\n' +
         "Edad: " + this.edad + '\n' +
-        "Genero: " + this.genero;
+        "Genero: " + this.genero + '\n';
   }
 }

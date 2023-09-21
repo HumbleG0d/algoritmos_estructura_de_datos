@@ -19,6 +19,10 @@ public class ElegirSort {
         sort.mergeSort(listaOrdenada, atributo, 0, listaOrdenada.length - 1);
         newLista = listaOrdenada;
         break;
+
+      case 4:
+        newLista = sort.heapSort(listaOrdenada, atributo);
+        break;
     }
     return newLista;
   }

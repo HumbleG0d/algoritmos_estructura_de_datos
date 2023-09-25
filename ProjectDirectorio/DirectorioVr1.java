@@ -64,19 +64,37 @@ public class DirectorioVr1 implements Directorio {
   }
 
   public Persona busca(String nombre) {
-    Persona encuentPersona;
-    int loc = 0;
+    // int loc = 0;
 
-    while (loc < contador && (nombre.equals(entrada[loc].getNombre()))) {
-      loc++;
+    // while (loc < contador && (nombre.equals(entrada[loc].getNombre()))) {
+    // loc++;
+    // }
+
+    // if (loc == contador) {
+    // encuentPersona = null;
+    // } else {
+    // encuentPersona = entrada[loc];
+    // }
+    // return encuentPersona;
+    // *Implementado Busqueda binaria */
+    int min = 0, max = entrada.length - 1;
+    int midle = (min + max) / 2;
+
+    while (min <= max && !(nombre.equals(entrada[midle].getNombre()))) {
+      // Lucho Rosa?
+      int comparacion = entrada[midle].getNombre().compareTo(nombre);
+      if (comparacion < 0) {
+        min = midle + 1;
+      } else {
+        max = midle - 1;
+      }
+      midle = (min + max) / 2;
     }
 
-    if (loc == contador) {
-      encuentPersona = null;
-    } else {
-      encuentPersona = entrada[loc];
-    }
-    return encuentPersona;
+    if (min > max)
+      return entrada[-1];
+
+    return entrada[midle];
   }
 
   private void expande() {

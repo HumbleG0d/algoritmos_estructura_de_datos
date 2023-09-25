@@ -7,20 +7,25 @@ public class binary {
   }
 
   public static int binarySearch(int[] array, int n) {
-    int min = 0;
-    int max = array.length - 1;
-    int index = -1;
-    while (min <= max) {
-      int average = (min + max) / 2;
-      if (array[average] < n) {
-        min = average + 1;
-      } else if (array[average] > n) {
-        max = average - 1;
+    int bajo = 0, alto = array.length - 1;
+    int medio = (bajo + alto) / 2;
+
+    int comparaciones = 0;
+
+    while (bajo <= alto && array[medio] != n) {
+      comparaciones++;
+      if (array[medio] < n) {
+        bajo = medio + 1;
       } else {
-        index = average;
-        break;
+        alto = medio - 1;
       }
+      medio = (bajo + alto) / 2;
     }
-    return index;
+
+    if (bajo > alto)
+      return -1;
+
+    System.out.println("Comparaciones: " + comparaciones);
+    return medio;
   }
 }

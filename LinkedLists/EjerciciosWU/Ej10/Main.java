@@ -12,16 +12,20 @@ public class Main {
     while (bandera) {
       bandera = registrar(sc, list);
     }
-    System.out.println("\nLista personas\n");
-    list.displayList();
 
-    System.out.println("\nLista ordenada");
-    sort.quickSort(list, 1, 0, list.getSize() - 1);
-    list.displayList();
+    if (list.get(0) != null) {
+      System.out.println("\nLista personas\n");
+      list.displayList();
 
-    Persona p = (Persona) list.get(list.getSize() - 1).value;
-    System.out.print("\nPersona mas longeva: " + p.getEdad());
+      System.out.println("\nLista ordenada");
+      sort.quickSort(list, 1, 0, list.getSize() - 1);
+      list.displayList();
 
+      Persona p = (Persona) list.get(list.getSize() - 1).value;
+      System.out.print("\nPersona mas longeva: " + p.getEdad());
+    } else {
+      System.out.println("Lista vacia");
+    }
     sc.close();
   }
 

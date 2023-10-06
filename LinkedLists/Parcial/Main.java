@@ -6,7 +6,7 @@ public class Main {
 
     list.addFirst(1);
     list.addFirst(5);
-    list.addFirst(8);
+    list.addFirst(21);
     list.addFirst(9);
     list.addFirst(12);
     list.addFirst(14);

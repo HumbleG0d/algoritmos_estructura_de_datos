@@ -113,6 +113,13 @@ public class LinkedList {
     return null;
   }
 
+  public void reverse(Node temp) {
+    if (temp.next != null) {
+      reverse(temp.next);
+    }
+    System.out.print(temp.value + " -> ");
+  }
+
   public void displayList() {
     Node current = head;
 
@@ -120,6 +127,12 @@ public class LinkedList {
       System.out.print(current.value + " -> ");
       current = current.next;
     }
+    System.out.println("END");
+  }
+
+  public void displayListReverse() {
+    Node current = head;
+    reverse(current);
     System.out.println("END");
   }
 

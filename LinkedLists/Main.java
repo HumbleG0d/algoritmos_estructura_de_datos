@@ -18,6 +18,7 @@ public class Main {
     System.out.println(ll.delete(3));
     ll.displayList();
 
+    ll.displayListReverse();
     System.out.println("Lista doble simple");
 
   }

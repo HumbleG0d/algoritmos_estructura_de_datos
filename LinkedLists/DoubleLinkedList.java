@@ -2,15 +2,18 @@ package LinkedLists;
 
 public class DoubleLinkedList {
   private Node head;
+  private Node tail;
 
   public void insertFirst(int val) {
-    Node node = new Node(val);
-    node.next = head;
-    node.prev = null;
-    if (head != null) {
-      head.prev = node;
+    Node newNodo = new Node(val);
+    if (head == null) {
+      head = newNodo;
+      tail = newNodo;
+    } else {
+      newNodo.next = head;
+      head.prev = newNodo;
+      head = newNodo;
     }
-    head = node;
   }
 
   public void display() {
@@ -31,24 +34,16 @@ public class DoubleLinkedList {
     System.out.println("START");
   }
 
-  public void insertLast(int val) {
-    Node node = new Node(val);
-    Node last = head;
-
-    node.next = null;
-
-    if (head == null) {
-      node.prev = null;
-      head = node;
-      return;
+  public void insertLast(int data) {
+    Node newNodo = new Node(data);
+    if (tail == null) {
+      head = newNodo;
+      tail = newNodo;
+    } else {
+      newNodo.prev = tail;
+      tail.next = newNodo;
+      tail = newNodo;
     }
-
-    while (last.next != null) {
-      last = last.next;
-    }
-
-    last.next = node;
-    node.prev = last;
   }
 
   public Node find(int value) {

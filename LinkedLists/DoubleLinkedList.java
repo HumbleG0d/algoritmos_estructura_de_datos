@@ -115,6 +115,28 @@ public class DoubleLinkedList {
     return value_nodo;
   }
 
+  public void remove(int valor) {
+    Node actual = head;
+    while (actual != null && actual.val != valor) {
+      actual = actual.next;
+    }
+    if (actual != null) {
+      if (actual == head) {
+        head = head.next;
+        if (head != null)
+          head.prev = null;
+        else
+          tail = null;
+      } else if (actual == tail) {
+        tail = actual.prev;
+        tail.next = null;
+      } else {
+        actual.prev.next = actual.next;
+        actual.next.prev = actual.prev;
+      }
+    }
+  }
+
   public String toString() {
     Node actual = head;
     String lista = "";

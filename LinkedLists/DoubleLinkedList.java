@@ -94,6 +94,27 @@ public class DoubleLinkedList {
     return value_nodo;
   }
 
+  public int deleteLast() {
+    if (tail == null) {
+      System.out.println("La lista está vacía. No hay elementos para eliminar.");
+      return 0;
+    }
+
+    Node nodoEliminar = tail;
+    int value_nodo = nodoEliminar.val;
+
+    if (tail.prev != null) {
+      tail = tail.prev;
+      tail.next = null;
+    } else {
+      // Si solo hay un nodo en la lista
+      head = null;
+      tail = null;
+    }
+
+    return value_nodo;
+  }
+
   public String toString() {
     Node actual = head;
     String lista = "";

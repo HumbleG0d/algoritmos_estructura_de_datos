@@ -19,7 +19,5 @@ public class Main {
     ll.displayList();
 
     ll.displayListReverse();
-    System.out.println("Lista doble simple");
-
   }
 }

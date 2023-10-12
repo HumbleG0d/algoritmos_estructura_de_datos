@@ -94,6 +94,23 @@ public class DoubleLinkedList {
     return value_nodo;
   }
 
+  public String toString() {
+    Node actual = head;
+    String lista = "";
+    while (actual != null) {
+      if (actual.prev == null)
+        lista = "null<-" + actual.val + "->" + actual.next.val;
+      else if (actual.next == null)
+        lista = lista + "||" + actual.prev.val + "<-" +
+            actual.val + "->null";
+      else
+        lista = lista + "||" + actual.prev.val + "<-" + actual.val + "->" +
+            actual.next.val;
+      actual = actual.next;
+    }
+    return lista;
+  }
+
   private class Node {
     int val;
     Node next;
